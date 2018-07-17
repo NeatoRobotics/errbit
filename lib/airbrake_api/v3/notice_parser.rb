@@ -60,7 +60,7 @@ module AirbrakeApi
 
         {
           'cgi-data'  => environment,
-          'session'   => params['session'],
+          'session'   => params['session']&.empty? ? params : params['session'],
           'params'    => params['params'],
           'url'       => url,
           'component' => context['component'],
